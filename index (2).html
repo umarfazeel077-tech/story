@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Love Story ❤️</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ font-family:Georgia,serif;
+ color:white;
+ overflow:hidden;
+ background:#160d2b;
+}
+
+.scene{
+ height:100vh;
+ width:100%;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:linear-gradient(135deg,#21133e,#6c326c,#e78bb8);
+ transition:background 1s;
+}
+
+.stars{
+ position:absolute;
+ inset:0;
+ background-image:radial-gradient(white 1px,transparent 2px);
+ background-size:45px 45px;
+ animation:stars 8s linear infinite;
+}
+
+@keyframes stars{
+ from{transform:translateY(0)}
+ to{transform:translateY(45px)}
+}
+
+.content{
+ position:relative;
+ z-index:3;
+ width:min(90%,600px);
+ padding:35px 25px;
+ background:#ffffff19;
+ backdrop-filter:blur(12px);
+ border:1px solid #ffffff50;
+ border-radius:25px;
+ box-shadow:0 0 35px #ff9bd755;
+ animation:appear 1s;
+}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(30px) scale(.9)}
+ to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+h1{
+ font-size:clamp(27px,6vw,43px);
+ color:#ffd4ed;
+ margin-bottom:20px;
+ text-shadow:0 0 20px pink;
+}
+
+p{
+ font-size:18px;
+ line-height:1.9;
+ color:#fff5fa;
+}
+
+.couple{
+ font-size:75px;
+ margin:20px;
+ animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-15px)}
+}
+
+button{
+ border:0;
+ padding:13px 25px;
+ border-radius:30px;
+ background:#ff78b5;
+ color:white;
+ font-size:16px;
+ margin:12px 5px 0;
+ cursor:pointer;
+ transition:.3s;
+}
+
+button:hover{
+ transform:scale(1.08);
+ background:#ff3998;
+}
+
+.heart{
+ position:absolute;
+ bottom:-30px;
+ font-size:22px;
+ animation:rise 7s linear infinite;
+ opacity:.8;
+ pointer-events:none;
+}
+
+@keyframes rise{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+.moon{
+ position:absolute;
+ top:35px;
+ right:35px;
+ font-size:50px;
+ filter:drop-shadow(0 0 15px white);
+}
+
+.progress{
+ position:absolute;
+ top:15px;
+ left:10%;
+ width:80%;
+ height:5px;
+ background:#ffffff40;
+ border-radius:20px;
+ z-index:5;
+}
+
+.bar{
+ height:100%;
+ width:0%;
+ background:#ffb4db;
+ border-radius:20px;
+ transition:.5s;
+}
+
+.small{
+ font-size:13px;
+ margin-top:20px;
+ color:#ffd4ed;
+}
+
+#end{
+ display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene" id="scene">
+
+<div class="stars"></div>
+<div class="moon">🌙</div>
+
+<div class="progress">
+ <div class="bar" id="bar"></div>
+</div>
+
+<div class="content" id="content">
+
+<div class="couple">👦🏻 💗 👧🏻</div>
+
+<h1>Our Love Story</h1>
+
+<p>
+Some stories begin with love...
+But ours began with little fights. 😂
+</p>
+
+<p class="small">A story of two hearts ❤️</p>
+
+<button onclick="next()">Start Our Story ✨</button>
+
+</div>
+</div>
+
+<script>
+
+const scenes = [
+
+{
+title:"Our School Days 🏫",
+emoji:"👦🏻 💢 👧🏻",
+text:"We knew each other since school days. We were just friends back then. But funny thing is... we always used to fight and argue with each other! 😂❤️",
+bg:"linear-gradient(135deg,#233d72,#596da8,#b5a4d8)"
+},
+
+{
+title:"The School Separation 💔",
+emoji:"🏫 👦🏻      👧🏻",
+text:"After our exams, everything changed. She went to another school, and I went to another school too. Our paths became different...",
+bg:"linear-gradient(135deg,#243b55,#536976,#9baec8)"
+},
+
+{
+title:"Two Years Later ⏳",
+emoji:"💔 🌧️ 💔",
+text:"Two years passed. We both went through failed love stories. We never knew that life was preparing a beautiful surprise for us...",
+bg:"linear-gradient(135deg,#25152e,#57334c,#9a617d)"
+},
+
+{
+title:"That One Status 📱",
+emoji:"📱 💗 ✨",
+text:"One day, a friend posted her status. I saw it and asked for her phone number. I finally got the courage to send her a message...",
+bg:"linear-gradient(135deg,#30234c,#785078,#bd789e)"
+},
+
+{
+title:"Our First Messages 💌",
+emoji:"👦🏻 📱 👧🏻",
+text:"We started chatting. Little by little, our conversations became special. I was happy every time I saw a message from her. 🥹",
+bg:"linear-gradient(135deg,#352052,#9b5c91,#e99ac4)"
+},
+
+{
+title:"The Eyes I Never Forgot 👀",
+emoji:"👦🏻 ❤️ 👧🏻",
+text:"Then we met at class. The moment I saw her beautiful eyes, something changed inside my heart. I started liking her more than I ever expected. ❤️",
+bg:"linear-gradient(135deg,#4a2455,#a84f8b,#ef9ac3)"
+},
+
+{
+title:"Can I Be Yours? 💗",
+emoji:"💐 👦🏻 💌",
+text:"After just two days of chatting, I finally asked her if she liked me. She said I might have to wait a little while. I said YES. I was ready to wait for her. 🥹",
+bg:"linear-gradient(135deg,#53204d,#c45a99,#f6a7cb)"
+},
+
+{
+title:"Her Beautiful Answer 💍",
+emoji:"👧🏻 💗 👦🏻",
+text:"And then, after just two or three days... she gave me her answer. SHE SAID YES! ❤️ The happiness I felt at that moment was unforgettable.",
+bg:"linear-gradient(135deg,#6b275b,#db6ba9,#ffb9d9)"
+},
+
+{
+title:"From Enemies to Lovers 🥰",
+emoji:"👦🏻 ❤️ 👧🏻",
+text:"The two people who used to fight at school became two hearts that fell in love. Life has a funny way of bringing people together. And our story became special.",
+bg:"linear-gradient(135deg,#542452,#ba5b9b,#f9a9cf)"
+},
+
+{
+title:"To My Princess 👑",
+emoji:"💑 💞 🌹",
+text:"Dear Theekshana, my Princess... I never expected that the girl I used to argue with at school would become someone so special to my heart. Thank you for becoming a beautiful part of my life. I hope our story never ends. I LOVE YOU! ❤️",
+bg:"linear-gradient(135deg,#39143e,#a33b81,#ff9fc8)"
+},
+
+{
+title:"Forever & Always ❤️",
+emoji:"💑 💋 💖",
+text:"This is not the end of our story. This is only the beginning of our forever. No matter what happens, I want to keep writing beautiful memories with you. Forever yours, my Princess! 💍",
+bg:"linear-gradient(135deg,#270e35,#9e347a,#ff85b9)"
+}
+
+];
+
+let current=0;
+
+function showScene(){
+
+ const s=scenes[current];
+
+ document.getElementById("scene").style.background=s.bg;
+
+ document.getElementById("content").innerHTML=`
+ <div class="couple">${s.emoji}</div>
+ <h1>${s.title}</h1>
+ <p>${s.text}</p>
+ <div style="margin-top:15px">
+ <button onclick="previous()" ${current===0?"style='opacity:.4'":""}>← Back</button>
+ <button onclick="next()">${current===scenes.length-1?"Replay ❤️":"Next ✨"}</button>
+ </div>
+ <div class="small">Our Story • ${current+1} / ${scenes.length}</div>
+ `;
+
+ document.getElementById("bar").style.width=
+ ((current+1)/scenes.length*100)+"%";
+
+}
+
+function next(){
+ if(current<scenes.length-1){
+ current++;
+ }else{
+ current=0;
+ }
+ showScene();
+}
+
+function previous(){
+ if(current>0){
+ current--;
+ showScene();
+ }
+}
+
+// Floating hearts
+function createHeart(){
+ const heart=document.createElement("div");
+ heart.className="heart";
+ heart.innerHTML=["❤️","💕","💗","🌸","💖"][Math.floor(Math.random()*5)];
+ heart.style.left=Math.random()*100+"%";
+ heart.style.animationDuration=(4+Math.random()*5)+"s";
+ document.getElementById("scene").appendChild(heart);
+
+ setTimeout(()=>heart.remove(),9000);
+}
+
+setInterval(createHeart,500);
+
+</script>
+
+</body>
+</html>
